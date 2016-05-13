@@ -1,4 +1,5 @@
-public class App{//sample
+
+public class App{//jerome
 	
 	public static void main(String[] args){
 		new App().start();
