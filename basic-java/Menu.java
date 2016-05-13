@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class Menu{
+public class Menu {
 	private TableService tableService;
 	private Scanner inputScanner = new Scanner(System.in);
 	private int rowSize = 0;
@@ -10,8 +10,8 @@ public class Menu{
 		this.tableService = tableService;
 	}
 
-	public void display(boolean isTableCreated){
-		if(!isTableCreated){
+	public void display(boolean isTableCreated) {
+		if (!isTableCreated) {
 			initTable();
 		}
 		tableService.print();
@@ -21,7 +21,7 @@ public class Menu{
 		option = validateNumberInput(option, 1, 5, 
 									"Please input a number ranging from 1 to 5: ", 
 									"Please input a positive number: ");
-		switch(option){
+		switch(option) {
 			case 1:
 				String searchText = "";
 				searchText = validateTextInput(searchText, 1, 3, "Please input 1 to 3 characters: ", "");
@@ -69,7 +69,7 @@ public class Menu{
 		display(true);
 	}
 
-	private void initTable(){
+	private void initTable() {
 		rowSize = 0;
 		columnSize = 0;
 		rowSize = validateNumberInput(rowSize, 1, -1, 
@@ -81,10 +81,10 @@ public class Menu{
 		tableService.createTable(rowSize, columnSize);
 	}
 
-	private int validateNumberInput(int input, int min, int max, String description, String error){
-		while (input < min || (input > max && max != -1)){
+	private int validateNumberInput(int input, int min, int max, String description, String error) {
+		while (input < min || (input > max && max != -1)) {
 			System.out.print(description);
-			while(!inputScanner.hasNextInt()){
+			while (!inputScanner.hasNextInt()) {
 				System.out.print(error);
 				inputScanner.nextLine();
 			}
@@ -94,8 +94,8 @@ public class Menu{
 		return input;
 	}
 
-	private String validateTextInput(String input, int min, int max, String description, String error){
-		while((input.length() < min || input.length() > max) || input.contains("\t")){
+	private String validateTextInput(String input, int min, int max, String description, String error) {
+		while((input.length() < min || input.length() > max) || input.contains("\t")) {
 			System.out.print(description);
 			input = inputScanner.nextLine();
 		}
